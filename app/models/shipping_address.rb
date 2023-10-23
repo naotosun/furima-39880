@@ -1,0 +1,4 @@
+class ShippingAddress < ApplicationRecord
+
+  
+end
