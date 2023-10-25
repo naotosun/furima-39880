@@ -64,6 +64,13 @@ RSpec.describe BuyAddress, type: :model do
         expect(@buy_address.errors.full_messages).to include("Street address can't be blank")
       end
 
+      it " 電話番号が必須であること" do
+        @buy_address.tel_number = nil
+        @buy_address.valid?
+        
+        expect(@buy_address.errors.full_messages).to include("Tel number should be 10 to 11 digits of numeric characters")
+      end
+
 
       it " 電話番号は、10桁以上11桁以内の半角数値のみ保存可能なこと(9桁の場合)" do
         @buy_address.tel_number = 123456789
