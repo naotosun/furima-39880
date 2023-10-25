@@ -1,6 +1,6 @@
 class BuyAddress
   include ActiveModel::Model
-  attr_accessor :user_id,:item_id,:post_code, :prefecture_id, :municipality, :street_address, :building_name, :tel_number
+  attr_accessor :user_id,:item_id,:post_code, :prefecture_id, :municipality, :street_address, :building_name, :tel_number, :token
 
   with_options presence: true do
 
@@ -11,6 +11,7 @@ class BuyAddress
     validates :municipality
     validates :street_address
     validates :tel_number, format: { with: /\A\d{10,11}\z/, message: "should be 10 to 11 digits of numeric characters" }
+    validates :token
   end
   validates :prefecture_id, numericality: {other_than: 0, message: "can't be blank"}
 
@@ -23,5 +24,3 @@ class BuyAddress
 
   end
 end
-
-## @shipping_date = ShippingDate.new
