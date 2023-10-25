@@ -7,12 +7,12 @@ class BuysController < ApplicationController
 
   def index 
     @buyaddresses = BuyAddress.new
-    @item = Item.find(params[:item_id])
+    
   end
 
   def create
     @buyaddresses = BuyAddress.new(buy_params)
-    @item = Item.find(params[:item_id])
+    
     if @buyaddresses.valid?
       pay_item
       @buyaddresses.save
